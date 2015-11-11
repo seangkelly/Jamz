@@ -7,6 +7,8 @@ public class PlayMusic : Photon.MonoBehaviour {
 	public float myVolume = 1.0f;
 	string stringclip;
 
+	public bool isLooping;
+
 
 	// Use this for initialization
 	
@@ -27,6 +29,7 @@ public class PlayMusic : Photon.MonoBehaviour {
 	*/
 
 	public void PlaySound(AudioClip clip){
+
 		stringclip = clip.ToString();
 		Debug.Log (stringclip);
 
@@ -41,8 +44,14 @@ public class PlayMusic : Photon.MonoBehaviour {
 	public void PlaySoundHandler ()//(string clipName)
 
 	{
+		if (isLooping == true) {
+			mySource.clip = clip;
+			mySource.loop = true;
+			mySource.Play();
 
-		mySource.PlayOneShot( clip, myVolume);
+		} else if (isLooping == false) {
+			mySource.PlayOneShot (clip, myVolume);
+		}
 		
 	}
 
