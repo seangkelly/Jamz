@@ -45,21 +45,30 @@ public class PlayMusic : Photon.MonoBehaviour {
 	public void PlaySoundHandler ()//(string clipName)
 
 	{
-		if (isLooping == true && !isPlaying) {
+		if (isLooping) {
+
 			mySource.clip = clip;
 			mySource.loop = true;
+			mySource.volume = 1.0f;
 			mySource.Play();
 
 		} else if (!isLooping) {
 			mySource.PlayOneShot (clip, myVolume);
 		}
 
+		//this is just not working the way I want it to 
 		if (isPlaying) {
 			mySource.clip = clip;
-			mySource.Stop ();
+			mySource.Pause ();
+//			mySource.clip = clip;
+//			mySource.loop = false;
+//			mySource.Stop ();
+			;
 
 		} else {
-
+			isPlaying = false;
+			mySource.clip = clip;
+			mySource.Play ();
 		}
 		
 	}
