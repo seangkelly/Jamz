@@ -8,10 +8,11 @@ public class PlayMusic : Photon.MonoBehaviour {
 	string stringclip;
 
 	public bool isLooping;
+	private bool isPlaying = false;
 
 
 	// Use this for initialization
-	
+
 	
 	// Update is called once per frame
 	/*void Update () {
@@ -44,13 +45,21 @@ public class PlayMusic : Photon.MonoBehaviour {
 	public void PlaySoundHandler ()//(string clipName)
 
 	{
-		if (isLooping == true) {
+		if (isLooping == true && !isPlaying) {
 			mySource.clip = clip;
 			mySource.loop = true;
 			mySource.Play();
 
-		} else if (isLooping == false) {
+		} else if (!isLooping) {
 			mySource.PlayOneShot (clip, myVolume);
+		}
+
+		if (isPlaying) {
+			mySource.clip = clip;
+			mySource.Stop ();
+
+		} else {
+
 		}
 		
 	}
