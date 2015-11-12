@@ -10,7 +10,6 @@ public class PlayMusic : Photon.MonoBehaviour {
 	public bool isLooping;
 	private bool isPlaying = false;
 
-
 	// Use this for initialization
 
 	
@@ -46,7 +45,6 @@ public class PlayMusic : Photon.MonoBehaviour {
 
 	{
 		if (isLooping) {
-
 			mySource.clip = clip;
 			mySource.loop = true;
 			mySource.volume = 1.0f;
@@ -58,16 +56,10 @@ public class PlayMusic : Photon.MonoBehaviour {
 
 		//this is just not working the way I want it to 
 		if (isPlaying) {
-			mySource.clip = clip;
 			mySource.Pause ();
-//			mySource.clip = clip;
-//			mySource.loop = false;
-//			mySource.Stop ();
-			;
+
 
 		} else {
-			isPlaying = false;
-			mySource.clip = clip;
 			mySource.Play ();
 		}
 		
