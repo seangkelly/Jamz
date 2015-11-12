@@ -54,9 +54,9 @@ public class PlayMusic : Photon.MonoBehaviour {
 			mySource.PlayOneShot (clip, myVolume);
 		}
 
-		//this is just not working the way I want it to 
+		//this is just not working properly
 		if (isPlaying) {
-			mySource.Pause ();
+			mySource.Stop ();
 
 
 		} else {
