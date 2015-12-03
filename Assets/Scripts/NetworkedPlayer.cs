@@ -16,15 +16,17 @@ public class NetworkedPlayer : Photon.MonoBehaviour
 		{
 			Debug.Log("player is mine");
 
-			GameObject.Find("CardboardMain").transform.Translate(Random.Range(-4.0F, 4.0F), 0, Random.Range(-4.0F, 4.0F));
+			GameObject.Find("CardboardMain").transform.Translate(Random.Range(-4.5F, 4.5F), 0, Random.Range(-4.5F, 4.5F));
 
 			playerGlobal = GameObject.Find("CardboardMain").transform;
 			playerLocal = playerGlobal.Find("Head");
-			
+
+
 			this.transform.SetParent(playerLocal);
 			this.transform.localPosition = Vector3.zero;
-			
-			//avatar.SetActive(false);
+
+			//avatar.transform.Rotate( 270f,  0f,  0f);
+			avatar.SetActive(false);
 		}
 	}
 	

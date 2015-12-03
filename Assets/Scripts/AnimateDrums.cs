@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimateDrums : MonoBehaviour {
+public class AnimateDrums : Photon.MonoBehaviour {
 
 	protected Animator MyAnimator;
 
@@ -21,6 +21,13 @@ public class AnimateDrums : MonoBehaviour {
 	}
 
 	public void hitMe(){
+
+		photonView.RPC ("hitAll", PhotonTargets.All, null);
+
+	}
+
+	[PunRPC]
+	public void hitAll(){
 
 		MyAnimator.SetTrigger ("playerHitMe");
 		Debug.Log ("playerHitMe triggered");

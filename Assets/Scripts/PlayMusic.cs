@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PlayMusic : Photon.MonoBehaviour {
+
 	public AudioClip clip;
 	public AudioSource mySource;
 	public float myVolume = 1.0f;
@@ -33,6 +34,7 @@ public class PlayMusic : Photon.MonoBehaviour {
 		stringclip = clip.ToString();
 		Debug.Log (stringclip);
 
+		//music
 		photonView.RPC("PlaySoundHandler",PhotonTargets.All, null);
 
 		//explosions
@@ -60,7 +62,7 @@ public class PlayMusic : Photon.MonoBehaviour {
 
 		else if (isLooping && isPlaying) {
 
-			mySource.Pause ();
+			mySource.Stop ();
 			isPlaying = false;
 			Debug.Log ("mySource is Pause");
 
